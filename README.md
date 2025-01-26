@@ -37,6 +37,10 @@ Instructions:
 
 ---
 
+If this bug gets fixed, then using this demo will fail next because the environment variables `AUTH_GOOGLE_ID` and `AUTH_GOOGLE_SECRET` are not set. This demo should be correctly configured if you register a Google OAuth client with the correct authorized origins (`http://localhost:3000` and `http://localhost:8787`) and authorized redirect URIs (`http://localhost:3000/api/auth/callback/google` and `http://localhost:8787/api/auth/callback/google`) and then set the `AUTH_GOOGLE_ID` and `AUTH_GOOGLE_SECRET` environment variables inside `.env.local`. Note that this demo page won't display anything differently after you successfully sign in.
+
+---
+
 Original readme template:
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
