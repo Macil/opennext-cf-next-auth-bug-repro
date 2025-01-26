@@ -1,3 +1,44 @@
+This repo is a reproduction of the bug [opennextjs-cloudflare/issues/206](https://github.com/opennextjs/opennextjs-cloudflare/issues/206), caused by using the [OpenNext](https://opennext.js.org/) Cloudflare adapter with [Next-auth (auth.js)](https://authjs.dev/).
+
+This project is the result of following the [OpenNext Cloudflare Getting Started guide](https://opennext.js.org/cloudflare/get-started) (`npm create cloudflare@latest -- my-next-app --framework=next --experimental`) followed by the [Auth.js Getting Started guide](https://authjs.dev/getting-started) for Next.js and Google sign-in.
+
+Instructions:
+
+1. `npm i`
+2. `npm run preview`
+3. Open http://localhost:8787
+4. Click the "Sign in with Google" button.
+5. In the terminal running `npm run preview`, observe an error like the following:
+
+```
+✘ [ERROR] [auth][error] Error: [unenv] crypto.createCipheriv is not implemented yet!
+
+      at createNotImplementedError
+  (file:///home/macil/Coding/opennext-cf-next-auth-bug-repro/node_modules/unenv/runtime/_internal/utils.mjs:22:10)
+      at fn
+  (file:///home/macil/Coding/opennext-cf-next-auth-bug-repro/node_modules/unenv/runtime/_internal/utils.mjs:26:11)
+      at null.<anonymous>
+  (file:///home/macil/Coding/opennext-cf-next-auth-bug-repro/.open-next/.next/standalone/.next/server/app/page.js:12:47787)
+      at eZ
+  (file:///home/macil/Coding/opennext-cf-next-auth-bug-repro/.open-next/.next/standalone/.next/server/app/page.js:12:47910)
+      at wo.encrypt
+  (file:///home/macil/Coding/opennext-cf-next-auth-bug-repro/.open-next/.next/standalone/.next/server/app/page.js:12:62345)
+      at async Ra.encrypt
+  (file:///home/macil/Coding/opennext-cf-next-auth-bug-repro/.open-next/.next/standalone/.next/server/app/page.js:12:63081)
+      at async tZ
+  (file:///home/macil/Coding/opennext-cf-next-auth-bug-repro/.open-next/.next/standalone/.next/server/app/page.js:12:76291)
+      at async i9
+  (file:///home/macil/Coding/opennext-cf-next-auth-bug-repro/.open-next/.next/standalone/.next/server/app/page.js:379:26345)
+      at async Object.create
+  (file:///home/macil/Coding/opennext-cf-next-auth-bug-repro/.open-next/.next/standalone/.next/server/app/page.js:379:27242)
+      at async oA
+  (file:///home/macil/Coding/opennext-cf-next-auth-bug-repro/.open-next/.next/standalone/.next/server/app/page.js:379:47897)
+```
+
+---
+
+Original readme template:
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
